@@ -18,7 +18,7 @@ class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
 
     _notificationModule.onForegroundNotification.listen(
       (notification) {
-        add(NotificationOpened(notification: notification));
+        add(NotificationInForegroundReceived(notification: notification));
       },
     );
   }
