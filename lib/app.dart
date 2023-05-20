@@ -24,18 +24,23 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           body: BlocListener<NotificationBloc, NotificationState>(
             listenWhen: (previous, current) {
-              return previous != current &&
-                  current.notification != null &&
-                  current.appState != null;
+              return previous != current;
             },
             listener: (context, state) {
               final notification = state.notification!;
+
               if (state.appState!.isForeground) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
+                    duration: const Duration(seconds: 20),
+                    backgroundColor: Colors.white,
                     content: ListTile(
                       title: Text(notification.title),
                       subtitle: Text(notification.body),
+                      trailing: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text('GO'),
+                      ),
                     ),
                   ),
                 );
