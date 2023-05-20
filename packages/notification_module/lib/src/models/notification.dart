@@ -8,6 +8,7 @@ class Notification extends Equatable {
   const Notification({
     required this.title,
     required this.body,
+    required this.data,
   });
 
   /// The notification title.
@@ -16,6 +17,9 @@ class Notification extends Equatable {
   /// The notification body.
   final String body;
 
+  /// The notification data.
+  final Map<String, dynamic> data;
+
   @override
-  List<Object> get props => [title, body];
+  List<Object> get props => [title, body, data];
 }
