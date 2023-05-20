@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "212513626815",
+    "project_id": "testingproject-f20cb",
+    "storage_bucket": "testingproject-f20cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212513626815:android:58f1771ef0f86b004e440a",
+        "android_client_info": {
+          "package_name": "com.julianc.push_notifications"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212513626815-q8vbp3mp4srfjt9sg4cnekkv9vanbhha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPcpUa0Pp58z0FkPCNxH6jAykHgoBtqUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212513626815-q8vbp3mp4srfjt9sg4cnekkv9vanbhha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
