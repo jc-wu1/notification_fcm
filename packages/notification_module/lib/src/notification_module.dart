@@ -33,7 +33,10 @@ class NotificationModule {
     final status = response.authorizationStatus;
     if (status == AuthorizationStatus.authorized) {
       final message = await _firebaseMessaging.getInitialMessage();
-      final token = await _firebaseMessaging.getToken(vapidKey: _vapidKey);
+      final String? token = await _firebaseMessaging.getToken(
+        vapidKey: _vapidKey,
+      );
+
       print(token);
 
       await _sendTokenToServer(token!);
@@ -51,11 +54,13 @@ class NotificationModule {
 
   void _onMessageOpened(RemoteMessage message) {
     final notification = message.notification;
+    final notificationData = message.data;
     if (notification != null) {
       _onNotificationOpenedController.sink.add(
         Notification(
           title: notification.title ?? '',
           body: notification.body ?? '',
+          data: notificationData,
         ),
       );
     }
@@ -75,12 +80,14 @@ class NotificationModule {
   Stream<Notification> get onForegroundNotification {
     return _onForegroundNotification.mapNotNull((message) {
       final notification = message.notification;
+      final notificationData = message.data;
       if (notification == null) {
         return null;
       }
       return Notification(
         title: notification.title ?? '',
         body: notification.body ?? '',
+        data: notificationData,
       );
     });
   }
