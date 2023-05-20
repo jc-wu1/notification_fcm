@@ -8,7 +8,7 @@ enum AppState {
   bool get isForeground => this == AppState.foreground;
 }
 
-class NotificationState extends Equatable {
+class NotificationState {
   const NotificationState({
     this.notification,
     this.appState,
@@ -18,9 +18,6 @@ class NotificationState extends Equatable {
 
   final Notification? notification;
   final AppState? appState;
-
-  @override
-  List<Object?> get props => [notification, appState];
 
   NotificationState copyWith({
     Notification? notification,
